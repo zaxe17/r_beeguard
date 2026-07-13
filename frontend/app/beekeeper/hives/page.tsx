@@ -5,6 +5,7 @@ import {
 	HiveProps,
 } from "@/components/ui/HiveContainer";
 import { SearchBar } from "@/components/ui/Input";
+import { Icon } from "@iconify/react";
 
 import hivesData from "@/data/hive.json";
 const hive = hivesData as HiveProps[];
@@ -14,14 +15,38 @@ const Hives = () => {
 		<div className="w-full h-full flex items-start">
 			{/* CONTAINER FOR BEEFARM LOCATION TAB */}
 			<Container width="40%" height="100%" borderNone>
-				<div className="w-full pt-5 px-2 flex flex-col items-center gap-4">
-					<h3 className="Poppins-SemiBold text-3xl text-[#020101]">
-						Hives
-					</h3>
+				<div className="w-full pt-5 px-2 flex flex-col gap-4">
+					<div className="flex justify-between items-center">
+						<h3 className="Poppins-SemiBold text-3xl text-[#020101]">
+							Hives
+						</h3>
 
-					<div className="w-2/3">
-						<SearchBar placeholder="Search My Hives" />
+						<div className="flex items-center gap-3">
+							{/* GENERATE */}
+							<div className="w-8 h-8 rounded-full cursor-pointer flex items-center justify-center">
+								<Icon
+									icon="mdi:file-cog"
+									className="w-8 h-8 text-[#ffdb4f]"
+								/>
+							</div>
+							<div className="w-8 h-8 rounded-full cursor-pointer flex items-center justify-center">
+								<Icon
+									icon="fa6-solid:file-pdf"
+									className="w-8 h-8 text-[#ffdb4f]"
+								/>
+							</div>
+
+							{/* ADD BUTTON */}
+							<div className="w-8 h-8 bg-[#ffdb4f] rounded-full cursor-pointer flex items-center justify-center">
+								<Icon
+									icon="tdesign:add"
+									className="w-full h-full text-white"
+								/>
+							</div>
+						</div>
 					</div>
+
+					<SearchBar placeholder="Search My Hives" />
 				</div>
 
 				{/* SCROLLABLE HIVE CARD */}
@@ -30,7 +55,7 @@ const Hives = () => {
 						<HiveTabs
 							key={i}
 							hiveId={h.hiveId}
-                            hive={h.hive}
+							hive={h.hive}
 							location={h.location}
 							lastCheck={h.lastCheck}
 							status={h.status}
