@@ -1,3 +1,5 @@
+"use client";
+
 import { Icon } from "@iconify/react";
 import { ChangeEvent, ReactNode } from "react";
 import { useState } from "react";
