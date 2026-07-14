@@ -78,7 +78,7 @@ const Login = () => {
 					<FormContainer width="lg:w-130">
 						{/* FORM HEADER */}
 						<h1 className="Poppins-Bold text-[#4A2F00] lg:text-5xl text-5xl">
-							Welcome Back!!
+							Welcome Back!
 						</h1>
 
 						<h2 className="Poppins-SemiBold text-[#7A6A58] lg:text-2xl text-base lg:mb-12 mb-8">
