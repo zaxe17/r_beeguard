@@ -89,7 +89,7 @@ export const AddHiveModal = ({ isOpen, onClose }: ModalProps) => {
 				<Input label="Bee Species" />
 				<Input label="Date Established" />
 				<Input label="Hive State" />
-				<Input label="Yield" />
+				<Input label="Yield from last season (if any)" />
 
 				{/* HEALTH STATUS */}
 				<div className="grid grid-cols-2 gap-2 mb-3">
@@ -144,7 +144,7 @@ export const MonitorHealth = ({ isOpen, onClose }: ModalProps) => {
 
 				{/* HEALTH STATUS */}
 				<label htmlFor="" className="lg:text-base text-xs text-black">
-					Physical Infection
+					Physical Inspection
 				</label>
 				<div className="grid grid-cols-2 gap-2 mb-3">
 					{PhysicalInfection.map((pi, i) => (
@@ -186,10 +186,13 @@ export const AddYield = ({ isOpen, onClose }: ModalProps) => {
 		<ModalContainer width="w-1/3" header="Add Yield" onClose={onClose}>
 			<form action="" className="w-full flex flex-col gap-3">
 				{/* INPUT FIELD */}
-				<Input label="Hive Number" />
-				<Input label="Bee Species" />
-				<Input label="Activity Type" />
-				<Input label="Date Established" />
+				<Input label="Hive Number" value="Hive #001" disabled />
+				<Input label="Bee Species" value="Duolingo" disabled />
+				<Input
+					label="Date Established"
+					value={new Date().toLocaleDateString("en-US")}
+					disabled
+				/>
 				<Input label="Total Yield" />
 
 				<div className="mt-3">

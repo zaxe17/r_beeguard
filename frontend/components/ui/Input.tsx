@@ -74,7 +74,7 @@ export const Input = ({
 					}
 				}}
 				disabled={disabled}
-				className={`text-sm w-full h-10 p-2.5 border ${
+				className={`text-sm w-full h-10 p-2.5 border ${disabled ? "text-[#817b70] cursor-not-allowed" : ""}  ${
 					error ? "border-red-600" : "border-[#a6a3a3]"
 				} outline-0 rounded-lg bg-white/70 [appearance:textfield]
     				[&::-webkit-outer-spin-button]:appearance-none
