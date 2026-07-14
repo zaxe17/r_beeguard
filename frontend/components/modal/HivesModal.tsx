@@ -193,6 +193,7 @@ export const AddYield = ({ isOpen, onClose }: ModalProps) => {
 					value={new Date().toLocaleDateString("en-US")}
 					disabled
 				/>
+				<Input label="Harvest Date" />
 				<Input label="Total Yield" />
 
 				<div className="mt-3">
