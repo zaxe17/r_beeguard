@@ -36,13 +36,13 @@ const statusCard = [
 		color: "#00cc00",
 	},
 	{
-		icon: Icons.health_search,
+		icon: Icons.alert,
 		count: "3",
 		title: "active alerts",
 		color: "#ff0000",
 	},
 	{
-		icon: Icons.health_search,
+		icon: Icons.honey_jar,
 		count: "24.6kg",
 		title: "total yield",
 		color: "#38b6ff",
@@ -76,8 +76,6 @@ const GraphContainer = ({ children, title }: GraphProps) => {
 		</div>
 	);
 };
-
-//
 
 const Beekeeper = () => {
 	return (

@@ -1,3 +1,5 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import {
 	HiveDetailsContainer,
@@ -6,11 +8,21 @@ import {
 } from "@/components/ui/HiveContainer";
 import { SearchBar } from "@/components/ui/Input";
 import { Icon } from "@iconify/react";
+import { useModal } from "@/context/ModalContext";
 
 import hivesData from "@/data/hive.json";
 const hive = hivesData as HiveProps[];
 
+type ModalType =
+	| "addHive"
+	| "monitorHealth"
+	| "addYield"
+	| "generate"
+	| "viewHistory";
+
 const Hives = () => {
+	const { openModal } = useModal<ModalType>();
+
 	return (
 		<div className="w-full h-full flex items-start">
 			{/* CONTAINER FOR BEEFARM LOCATION TAB */}
@@ -23,21 +35,19 @@ const Hives = () => {
 
 						<div className="flex items-center gap-3">
 							{/* GENERATE */}
-							<div className="w-8 h-8 rounded-full cursor-pointer flex items-center justify-center">
+							<div
+								onClick={() => openModal("generate")}
+								className="w-8 h-8 rounded-full cursor-pointer flex items-center justify-center">
 								<Icon
 									icon="mdi:file-cog"
 									className="w-8 h-8 text-[#ffdb4f]"
 								/>
 							</div>
-							<div className="w-8 h-8 rounded-full cursor-pointer flex items-center justify-center">
-								<Icon
-									icon="fa6-solid:file-pdf"
-									className="w-8 h-8 text-[#ffdb4f]"
-								/>
-							</div>
 
 							{/* ADD BUTTON */}
-							<div className="w-8 h-8 bg-[#ffdb4f] rounded-full cursor-pointer flex items-center justify-center">
+							<div
+								onClick={() => openModal("addHive")}
+								className="w-8 h-8 bg-[#ffdb4f] rounded-full cursor-pointer flex items-center justify-center">
 								<Icon
 									icon="tdesign:add"
 									className="w-full h-full text-white"
@@ -71,7 +81,12 @@ const Hives = () => {
 					<h1 className="Poppins-Bold text-5xl">Hive Details</h1>
 
 					{/* CONTAINER */}
-					<HiveDetailsContainer />
+					<HiveDetailsContainer
+						hiveHealthButton={() => openModal("monitorHealth")}
+						addYieldButton={() => openModal("addYield")}
+						history={() => openModal("viewHistory")}
+						status="healthy"
+					/>
 				</div>
 			</div>
 		</div>

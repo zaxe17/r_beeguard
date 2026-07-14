@@ -39,7 +39,7 @@ export const HiveHealthChart = ({ data }: HiveHealthChartProps) => {
 			easing: "easeOutQuart" as const,
 			delay: (context: any) => {
 				if (context.type !== "data") return 0;
-				return context.dataIndex * 150; // ✅ stagger per segment/arc
+				return context.dataIndex * 150;
 			},
 		},
 		animateRotate: true,

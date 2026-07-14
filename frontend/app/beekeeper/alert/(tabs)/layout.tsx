@@ -1,6 +1,7 @@
 "use client";
 
 import { SearchBar } from "@/components/ui/Input";
+import { useModal } from "@/context/ModalContext";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,15 +18,20 @@ const tabs = [
 	},
 ];
 
+type ModalType = "addAlert";
+
 const layout = ({ children }: { children: React.ReactNode }) => {
 	const pathName = usePathname();
+	const { openModal } = useModal<ModalType>();
 
 	return (
 		<div className="h-screen w-full flex justify-center items-center">
 			<div className="h-full w-1/2 flex flex-col justify-center pt-10 pb-5">
 				<div className="flex justify-end items-center gap-3 mb-8">
 					{/* ADD BUTTON */}
-					<div className="w-8 h-8 bg-[#ffdb4f] rounded-full cursor-pointer">
+					<div
+						onClick={() => openModal("addAlert")}
+						className="w-8 h-8 bg-[#ffdb4f] rounded-full cursor-pointer">
 						<Icon
 							icon="tdesign:add"
 							className="w-full h-full text-white"

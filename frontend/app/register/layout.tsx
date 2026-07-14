@@ -19,13 +19,13 @@ const RegisterLayout = ({ children }: { children: React.ReactNode }) => {
 			<Background />
 
 			{/* MODAL FOR CONTINUE TO CREATE ACCOUNT */}
-			<Modal
+			{/* <Modal
 				title="Create Your Account?"
 				content="Are you sure you want to create your account? Please
 						confirm that all the information you entered is correct
 						before proceeding."
 				labelButton="Create Account"
-			/>
+			/> */}
 			
 			{/* CONTAINER */}
 			<main className="relative h-full flex justify-center items-center z-10 p-5">

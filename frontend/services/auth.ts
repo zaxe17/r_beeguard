@@ -17,11 +17,7 @@ export interface RegisterPayload {
 	terms_accepted: boolean;
 	// beekeeper-only
 	farm_name?: string | null;
-	apiary_type?:
-		| "Commercial Farm"
-		| "Backyard"
-		| "Rooftop"
-		| "Wild/Forest";
+	apiary_type?: "Commercial Farm" | "Backyard" | "Rooftop" | "Wild/Forest";
 }
 
 export interface LoginPayload {
@@ -66,10 +62,10 @@ export const authService = {
  * { latitude: null, longitude: 0 } if permission denied. Longitude is required
  * by the DB schema, so we fall back to 0 rather than blocking registration.
  */
-export function getCoordinatesOrFallback(): Promise<{
+export const getCoordinatesOrFallback = (): Promise<{
 	latitude: number | null;
 	longitude: number;
-}> {
+}> => {
 	return new Promise((resolve) => {
 		if (typeof window === "undefined" || !("geolocation" in navigator)) {
 			resolve({ latitude: null, longitude: 0 });
@@ -85,4 +81,4 @@ export function getCoordinatesOrFallback(): Promise<{
 			{ enableHighAccuracy: false, timeout: 6000, maximumAge: 60000 },
 		);
 	});
-}
+};
