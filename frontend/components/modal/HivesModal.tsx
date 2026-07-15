@@ -3,7 +3,7 @@ import React from "react";
 import { Input } from "../ui/Input";
 import { Button } from "../ui/Button";
 import { ModalContainer } from "./Modal";
-import { HiveTrans } from "../ui/HiveContainer";
+import { HiveTrans } from "../HiveContainer";
 import { useState } from "react";
 
 type ModalProps = {
@@ -183,7 +183,7 @@ export const AddYield = ({ isOpen, onClose }: ModalProps) => {
 	if (!isOpen) return null;
 
 	return (
-		<ModalContainer width="w-1/3" header="Add Yield" onClose={onClose}>
+		<ModalContainer width="w-1/4" header="Add Yield" onClose={onClose}>
 			<form action="" className="w-full flex flex-col gap-3">
 				{/* INPUT FIELD */}
 				<Input label="Hive Number" value="Hive #001" disabled />
@@ -197,7 +197,7 @@ export const AddYield = ({ isOpen, onClose }: ModalProps) => {
 				<Input label="Total Yield" />
 
 				<div className="mt-3">
-					<Button label="Log Maintenance" />
+					<Button label="Add" />
 				</div>
 			</form>
 		</ModalContainer>
@@ -323,6 +323,26 @@ export const ViewHistory = ({ isOpen, onClose }: ModalProps) => {
 					</tbody>
 				</table>
 			</div>
+		</ModalContainer>
+	);
+};
+
+export const QueenReplace = ({ isOpen, onClose }: ModalProps) => {
+	if (!isOpen) return null;
+
+	return (
+		<ModalContainer
+			width="w-1/4"
+			header="Replace the Queen Bee"
+			onClose={onClose}>
+			<form action="" className="w-full flex flex-col gap-3">
+				{/* INPUT FIELD */}
+				<Input label="Date of Replacement" type="date" />
+
+				<div className="mt-3">
+					<Button label="Replace" />
+				</div>
+			</form>
 		</ModalContainer>
 	);
 };

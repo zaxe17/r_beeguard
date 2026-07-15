@@ -5,7 +5,7 @@ import {
 	HiveDetailsContainer,
 	HiveTabs,
 	HiveProps,
-} from "@/components/ui/HiveContainer";
+} from "@/components/HiveContainer";
 import { SearchBar } from "@/components/ui/Input";
 import { Icon } from "@iconify/react";
 import { useModal } from "@/context/ModalContext";
@@ -18,7 +18,8 @@ type ModalType =
 	| "monitorHealth"
 	| "addYield"
 	| "generate"
-	| "viewHistory";
+	| "viewHistory"
+	| "replace";
 
 const Hives = () => {
 	const { openModal } = useModal<ModalType>();
@@ -85,7 +86,8 @@ const Hives = () => {
 						hiveHealthButton={() => openModal("monitorHealth")}
 						addYieldButton={() => openModal("addYield")}
 						history={() => openModal("viewHistory")}
-						status="healthy"
+						replacement={() => openModal("replace")}
+						status="need attention"
 					/>
 				</div>
 			</div>

@@ -5,6 +5,7 @@ import {
 	AddHiveModal,
 	AddYield,
 	MonitorHealth,
+	QueenReplace,
 	ViewHistory,
 } from "@/components/modal/HivesModal";
 import { Modal } from "@/components/modal/Modal";
@@ -17,7 +18,8 @@ type ModalType =
 	| "addYield"
 	| "generate"
 	| "addAlert"
-	| "viewHistory";
+	| "viewHistory"
+	| "replace";
 
 const BeekeeperLayoutContent = ({
 	children,
@@ -35,10 +37,6 @@ const BeekeeperLayoutContent = ({
 			<Modal
 				isOpen={isModalOpen("generate")}
 				onClose={closeModal}
-				onConfirm={() => {
-					console.log("Account created!");
-					closeModal();
-				}}
 				title="GENERATE YIELD HISTORY"
 				content="Do you want to download your honey yield history?"
 				labelButton="Download"
@@ -60,6 +58,11 @@ const BeekeeperLayoutContent = ({
 
 			<ViewHistory
 				isOpen={isModalOpen("viewHistory")}
+				onClose={closeModal}
+			/>
+
+			<QueenReplace
+				isOpen={isModalOpen("replace")}
 				onClose={closeModal}
 			/>
 		</div>

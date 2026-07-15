@@ -85,7 +85,7 @@ export const ModalContainer = ({
 					<div className="relative w-full text-center flex items-center justify-center shrink-0">
 						<div
 							onClick={onClose}
-							className="absolute -right-3.5 -top-3.5 w-8 h-8 cursor-pointer">
+							className="absolute -right-3.5 -top-3.5 w-7 h-7 cursor-pointer">
 							<Icon
 								icon="iconamoon:close-circle-2-duotone"
 								className="w-full h-full text-[#4A2F00]"

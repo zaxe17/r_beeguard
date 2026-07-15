@@ -1,6 +1,7 @@
 import * as Icons from "@/public/assets/icons/icons";
 import Image from "next/image";
-import { Button } from "./Button";
+import { Button } from "./ui/Button";
+import { Icon } from "@iconify/react";
 
 const HiveIcon = {
 	healthy: {
@@ -32,6 +33,7 @@ export type HiveProps = {
 	hiveHealthButton?: () => void;
 	addYieldButton?: () => void;
 	history?: () => void;
+	replacement?: () => void;
 };
 
 function getHiveIconKey(status: HiveProps["status"]) {
@@ -42,15 +44,41 @@ export const HiveDetailsContainer = ({
 	hiveHealthButton,
 	addYieldButton,
 	history,
+	replacement,
 	status,
 }: HiveProps) => {
 	const iconKey = getHiveIconKey(status);
 
 	return (
-		<div className="flex flex-col gap-10">
+		<div className="flex flex-col gap-4 w-md">
+			{/* QUEEN BEE REPLACEMENT WARNING */}
+			{(status === "weak" || status === "need attention") && (
+				<div className="bg-[#FAEEDA] border-2 border-[#FAC775] border-solid rounded-lg p-2 flex flex-1 items-center justify-between">
+					<div className="flex items-center gap-2">
+						<div className="w-7 h-7">
+							<Icon
+								icon="octicon:alert-16"
+								className="w-full h-full text-[#854F0B]"
+							/>
+						</div>
+						<p className="Poppins-Bold text-[#854F0B] text-[10px] w-3/4">
+							Replacing the queen bee is recommended to improve
+							the hive's health and productivity.
+						</p>
+					</div>
+
+					<button
+						type="button"
+						onClick={replacement}
+						className="Poppins-SemiBold bg-[#ffdb4f] text-[#412402] text-xs py-1 px-2 rounded-md text-nowrap cursor-pointer">
+						Replace Queen
+					</button>
+				</div>
+			)}
+
 			{/* HIVES DETAILS */}
 			<div
-				className="border-2 border-[#e2e2e6] rounded-2xl p-5 capitalize flex gap-5 w-md"
+				className="border-2 border-[#e2e2e6] rounded-2xl p-5 capitalize flex gap-5"
 				style={{
 					boxShadow: `rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px`,
 				}}>
