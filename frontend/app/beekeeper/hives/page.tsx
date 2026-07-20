@@ -87,7 +87,12 @@ const Hives = () => {
 						addYieldButton={() => openModal("addYield")}
 						history={() => openModal("viewHistory")}
 						replacement={() => openModal("replace")}
-						status="need attention"
+						hiveId="Hive #001"
+						hive="duolingo"
+						location="Baguio City"
+						lastCheck="May 15, 2026"
+						hiveState="Active"
+						status="healthy"
 					/>
 				</div>
 			</div>

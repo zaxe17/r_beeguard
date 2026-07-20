@@ -45,7 +45,12 @@ export const HiveDetailsContainer = ({
 	addYieldButton,
 	history,
 	replacement,
+	hiveId,
+	hive,
+	location,
+	lastCheck,
 	status,
+	hiveState,
 }: HiveProps) => {
 	const iconKey = getHiveIconKey(status);
 
@@ -106,20 +111,20 @@ export const HiveDetailsContainer = ({
 				{/* RIGHT */}
 				<div className="w-full">
 					{/* HIVE ID */}
-					<h1 className="Poppins-Bold text-2xl">Hive #001</h1>
+					<h1 className="Poppins-Bold text-2xl">{hiveId}</h1>
 
 					{/* NAME */}
 					<h2 className="Poppins-Bold text-xl italic mb-4">
-						duolingo
+						{hive}
 					</h2>
 
 					{/* LOCATION AND DATE CHECK */}
 					<div className="flex flex-col mb-15">
 						<span className="Poppins-SemiBold text-[#817b70] text-sm">
-							Location: Baguio City
+							Location: {location}
 						</span>
 						<span className="Poppins-SemiBold text-[#817b70] text-sm">
-							Last Check: May 15, 2026
+							Last Check: {lastCheck}
 						</span>
 					</div>
 
@@ -137,7 +142,7 @@ export const HiveDetailsContainer = ({
 								Hive State
 							</h2>
 							<span className="Poppins-SemiBold text-sm">
-								Active
+								{hiveState}
 							</span>
 						</div>
 
